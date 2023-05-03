@@ -10,6 +10,7 @@ import { TableWithActionsComponent } from './with-actions/table-with-actions/tab
 import {MatTabsModule} from "@angular/material/tabs";
 import { ActionsBeforeComponent } from './with-actions/actions-before/actions-before.component';
 import { TableWithPaginationComponent } from './table-with-pagination/table-with-pagination.component';
+import { TableWithSelectionComponent } from './table-with-selection/table-with-selection.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TableWithPaginationComponent } from './table-with-pagination/table-with
     ComplexObjectComponent,
     TableWithActionsComponent,
     ActionsBeforeComponent,
-    TableWithPaginationComponent
+    TableWithPaginationComponent,
+    TableWithSelectionComponent
   ],
   imports: [
     BrowserModule,
