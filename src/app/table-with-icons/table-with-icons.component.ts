@@ -1,9 +1,16 @@
 import {Component} from '@angular/core';
-
-
 import {TableConfig} from "ngx-aur-mat-table";
 import {CustomerTableRow} from "../shared/model/customer-table-row";
 import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
+import {Customer} from "../shared/model/customer";
+
+
+export class CustomerTableRowExt extends CustomerTableRow {
+  constructor(customer: Customer,
+              public ext: string) {
+    super(customer, customer.name, customer.age);
+  }
+}
 
 @Component({
   selector: 'app-table-with-icons',
@@ -63,7 +70,7 @@ export class TableWithIconsComponent {
     },
     {
       name: 'иконка',
-      key: 'age',
+      key: 'ext',
       headerColumn: {
         icon: {
           name: 'fiber_manual_record',
@@ -85,7 +92,7 @@ export class TableWithIconsComponent {
     }
   ];
 
-  tableData: CustomerTableRow[] = CustomerGenerator.generate(10).map(c => new CustomerTableRow(c, c.name, c.age));
+  tableData: CustomerTableRowExt[] = CustomerGenerator.generate(10).map(c => new CustomerTableRowExt(c, ''));
 
   randomColor(): string {
     const red = Math.floor(Math.random() * 256);

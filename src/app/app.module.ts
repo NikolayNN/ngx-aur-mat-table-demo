@@ -11,6 +11,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { ActionsBeforeComponent } from './with-actions/actions-before/actions-before.component';
 import { TableWithPaginationComponent } from './table-with-pagination/table-with-pagination.component';
 import { TableWithSelectionComponent } from './table-with-selection/table-with-selection.component';
+import { TableWithSortComponent } from './table-with-sort/table-with-sort.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TableWithSelectionComponent } from './table-with-selection/table-with-s
     TableWithActionsComponent,
     ActionsBeforeComponent,
     TableWithPaginationComponent,
-    TableWithSelectionComponent
+    TableWithSelectionComponent,
+    TableWithSortComponent
   ],
   imports: [
     BrowserModule,
