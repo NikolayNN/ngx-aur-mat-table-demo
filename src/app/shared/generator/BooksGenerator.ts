@@ -16,7 +16,7 @@ export class BooksGenerator {
     new Author(10, 'Haruki Murakami')
   ];
 
-  static generateRandomBooks(numBooks: number): Book[] {
+  static generate(numBooks: number): Book[] {
     const books: Book[] = [];
     for (let i = 1; i <= numBooks; i++) {
       const randomAuthor: Author = this.authors[Math.floor(Math.random() * this.authors.length)];

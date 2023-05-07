@@ -1,16 +1,7 @@
 import {Component} from '@angular/core';
 import {TableConfig} from "ngx-aur-mat-table";
-import {CustomerTableRow} from "../shared/model/customer-table-row";
 import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
 import {Customer} from "../shared/model/customer";
-
-
-export class CustomerTableRowExt extends CustomerTableRow {
-  constructor(customer: Customer,
-              public ext: string) {
-    super(customer, customer.name, customer.age);
-  }
-}
 
 @Component({
   selector: 'app-table-with-icons',
@@ -18,10 +9,11 @@ export class CustomerTableRowExt extends CustomerTableRow {
   styleUrls: ['./table-with-icons.component.scss']
 })
 export class TableWithIconsComponent {
-  tableConfig: TableConfig<CustomerTableRow>[] = [
+  tableConfig: TableConfig<Customer>[] = [
     {
       name: 'customers name',
       key: 'name',
+      valueConverter: v => v.name,
       headerColumn: {
         icon: {
           name: 'person',
@@ -32,13 +24,14 @@ export class TableWithIconsComponent {
     {
       name: 'customers age',
       key: 'age',
+      valueConverter: v => v.age,
       valueColumn: {
         icon: {
           tooltip: () => 'подсказка для иконки',
           name: (v) => {
-            if (v.rowSrc.age <= 25) {
+            if (v['age'] <= 25) {
               return "sentiment_very_satisfied"
-            } else if (v.rowSrc.age > 25 && v.rowSrc.age <= 35) {
+            } else if (v['age'] > 25 && v['age'] <= 35) {
               return 'coronavirus'
             } else {
               return 'whatshot';
@@ -71,6 +64,7 @@ export class TableWithIconsComponent {
     {
       name: 'иконка',
       key: 'ext',
+      valueConverter: v => '',
       headerColumn: {
         icon: {
           name: 'fiber_manual_record',
@@ -92,7 +86,7 @@ export class TableWithIconsComponent {
     }
   ];
 
-  tableData: CustomerTableRowExt[] = CustomerGenerator.generate(10).map(c => new CustomerTableRowExt(c, ''));
+  tableData = CustomerGenerator.generate(10);
 
   randomColor(): string {
     const red = Math.floor(Math.random() * 256);

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {BooksGenerator} from "../shared/generator/BooksGenerator";
-import {BookTableRow} from "../shared/model/book-table-row";
 import {TableConfig} from "ngx-aur-mat-table";
+import {Book} from "../shared/model/book";
 
 @Component({
   selector: 'app-complex-object',
@@ -10,22 +10,24 @@ import {TableConfig} from "ngx-aur-mat-table";
 })
 export class ComplexObjectComponent {
 
-  tableConfig: TableConfig<any>[] = [
+  tableConfig: TableConfig<Book>[] = [
     {
       name: 'book id',
-      key: 'id'
+      key: 'id',
+      valueConverter: v => v.id
     },
     {
       name: 'book name',
       key: 'name',
+      valueConverter: v => v.name
     },
     {
       name: 'book Author',
       key: 'author',
+      valueConverter: v => v.author.name
     }
   ];
 
-  tableData = BooksGenerator.generateRandomBooks(10)
-    .map(b => new BookTableRow(b, b.id, b.name, b.author.name));
+  tableData = BooksGenerator.generate(10);
 
 }

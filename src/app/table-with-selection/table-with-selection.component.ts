@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {SelectionConfig, TableConfig, TableRow} from "ngx-aur-mat-table";
+import {Component} from '@angular/core';
+import {SelectionConfig, TableConfig} from "ngx-aur-mat-table";
 import {Customer} from "../shared/model/customer";
 import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
-import {CustomerTableRow} from "../shared/model/customer-table-row";
 
 @Component({
   selector: 'app-table-with-selection',
@@ -12,20 +11,20 @@ import {CustomerTableRow} from "../shared/model/customer-table-row";
 export class TableWithSelectionComponent {
 
   selected: Customer[] = [];
-  lastSelected: Customer[] = [];
-  lastDeselected: Customer[] = [];
 
   tableConfig: TableConfig<Customer>[] = [
     {
       name: 'customers name',
-      key: 'name'
+      key: 'name',
+      valueConverter: v => v.name
     },
     {
       name: 'customers age',
       key: 'age',
+      valueConverter: v => v.age
     }
   ];
-  tableData: TableRow<Customer>[] = CustomerGenerator.generate(10).map(c => new CustomerTableRow(c, c.name, c.age));
+  tableData = CustomerGenerator.generate(10);
 
   selectionConfig: SelectionConfig = {
     multiple: true
