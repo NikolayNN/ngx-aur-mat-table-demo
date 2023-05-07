@@ -12,6 +12,7 @@ import { ActionsBeforeComponent } from './with-actions/actions-before/actions-be
 import { TableWithPaginationComponent } from './table-with-pagination/table-with-pagination.component';
 import { TableWithSelectionComponent } from './table-with-selection/table-with-selection.component';
 import { TableWithSortComponent } from './table-with-sort/table-with-sort.component';
+import { TableWithIndexComponent } from './table-with-index/table-with-index.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TableWithSortComponent } from './table-with-sort/table-with-sort.compon
     ActionsBeforeComponent,
     TableWithPaginationComponent,
     TableWithSelectionComponent,
-    TableWithSortComponent
+    TableWithSortComponent,
+    TableWithIndexComponent
   ],
   imports: [
     BrowserModule,
