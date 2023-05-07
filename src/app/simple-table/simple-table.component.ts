@@ -10,17 +10,19 @@ import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
 })
 export class SimpleTableComponent {
 
-  tableConfig: TableConfig<Customer>[] = [
-    {
-      name: 'customers name',
-      key: 'name',
-      valueConverter: v => v.name
-    },
-    {
-      name: 'customers age',
-      key: 'age',
-      valueConverter: v => v.age
-    }
-  ];
+  tableConfig: TableConfig<Customer> = {
+    columnsCfg: [
+      {
+        name: 'customers name',
+        key: 'name',
+        valueConverter: v => v.name
+      },
+      {
+        name: 'customers age',
+        key: 'age',
+        valueConverter: v => v.age
+      }
+    ]
+  }
   tableData: Customer[] = CustomerGenerator.generate(10);
 }

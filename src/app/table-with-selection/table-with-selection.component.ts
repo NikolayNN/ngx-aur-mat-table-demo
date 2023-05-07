@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SelectionConfig, TableConfig} from "ngx-aur-mat-table";
+import {TableConfig} from "ngx-aur-mat-table";
 import {Customer} from "../shared/model/customer";
 import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
 
@@ -12,21 +12,23 @@ export class TableWithSelectionComponent {
 
   selected: Customer[] = [];
 
-  tableConfig: TableConfig<Customer>[] = [
-    {
-      name: 'customers name',
-      key: 'name',
-      valueConverter: v => v.name
-    },
-    {
-      name: 'customers age',
-      key: 'age',
-      valueConverter: v => v.age
+  tableConfig: TableConfig<Customer> = {
+    columnsCfg: [
+      {
+        name: 'customers name',
+        key: 'name',
+        valueConverter: v => v.name
+      },
+      {
+        name: 'customers age',
+        key: 'age',
+        valueConverter: v => v.age
+      }
+    ],
+    selectionCfg: {
+      enable: true,
+      multiple: true
     }
-  ];
-  tableData = CustomerGenerator.generate(10);
-
-  selectionConfig: SelectionConfig = {
-    multiple: true
   }
+  tableData = CustomerGenerator.generate(10);
 }

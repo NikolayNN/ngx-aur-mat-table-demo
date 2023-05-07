@@ -10,17 +10,23 @@ import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
 })
 export class TableWithPaginationComponent {
 
-  tableConfig: TableConfig<Customer>[] = [
-    {
-      name: 'customers name',
-      key: 'name',
-      valueConverter: v => v.name
-    },
-    {
-      name: 'customers age',
-      key: 'age',
-      valueConverter: v => v.age
+  tableConfig: TableConfig<Customer> = {
+    columnsCfg: [
+      {
+        name: 'customers name',
+        key: 'name',
+        valueConverter: v => v.name
+      },
+      {
+        name: 'customers age',
+        key: 'age',
+        valueConverter: v => v.age
+      }
+    ],
+
+    pageableCfg: {
+      enable: true
     }
-  ];
+  }
   tableData: Customer[] = CustomerGenerator.generate(100);
 }

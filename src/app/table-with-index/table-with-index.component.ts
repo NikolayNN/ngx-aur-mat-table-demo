@@ -15,17 +15,20 @@ export class TableWithIndexComponent {
     offset: 1
   }
 
-  tableConfig: TableConfig<Customer>[] = [
-    {
-      name: 'customers name',
-      key: 'name',
-      valueConverter: v => v.name
-    },
-    {
-      name: 'customers age',
-      key: 'age',
-      valueConverter: v => v.age
-    }
-  ];
+  tableConfig: TableConfig<Customer> = {
+    columnsCfg: [
+      {
+        name: 'customers name',
+        key: 'name',
+        valueConverter: v => v.name
+      },
+      {
+        name: 'customers age',
+        key: 'age',
+        valueConverter: v => v.age
+      }
+    ],
+    indexCfg: {enable: true, offset: 1}
+  }
   tableData = CustomerGenerator.generate(10);
 }

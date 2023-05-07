@@ -9,82 +9,84 @@ import {Customer} from "../shared/model/customer";
   styleUrls: ['./table-with-icons.component.scss']
 })
 export class TableWithIconsComponent {
-  tableConfig: TableConfig<Customer>[] = [
-    {
-      name: 'customers name',
-      key: 'name',
-      valueConverter: v => v.name,
-      headerColumn: {
-        icon: {
-          name: 'person',
-          color: 'salmon'
-        }
-      },
-    },
-    {
-      name: 'customers age',
-      key: 'age',
-      valueConverter: v => v.age,
-      valueColumn: {
-        icon: {
-          tooltip: () => 'подсказка для иконки',
-          name: (v) => {
-            if (v['age'] <= 25) {
-              return "sentiment_very_satisfied"
-            } else if (v['age'] > 25 && v['age'] <= 35) {
-              return 'coronavirus'
-            } else {
-              return 'whatshot';
-            }
-          },
-          color: (v) => {
-            if (v.age <= 25) {
-              return "green"
-            } else if (v.age > 25 && v.age <= 35) {
-              return 'blue'
-            } else {
-              return 'orange';
-            }
-          },
+  tableConfig: TableConfig<Customer> = {
+    columnsCfg: [
+      {
+        name: 'customers name',
+        key: 'name',
+        valueConverter: v => v.name,
+        headerColumn: {
+          icon: {
+            name: 'person',
+            color: 'salmon'
+          }
         },
-        text: {
-          tooltip: () => "подсказка для текста",
-          color: (v) => {
-            if (v.age <= 25) {
-              return "orange"
-            } else if (v.age > 25 && v.age <= 35) {
-              return 'green'
-            } else {
-              return 'blue';
+      },
+      {
+        name: 'customers age',
+        key: 'age',
+        valueConverter: v => v.age,
+        valueColumn: {
+          icon: {
+            tooltip: () => 'подсказка для иконки',
+            name: (v) => {
+              if (v['age'] <= 25) {
+                return "sentiment_very_satisfied"
+              } else if (v['age'] > 25 && v['age'] <= 35) {
+                return 'coronavirus'
+              } else {
+                return 'whatshot';
+              }
+            },
+            color: (v) => {
+              if (v.rowSrc.age <= 25) {
+                return "green"
+              } else if (v.rowSrc.age > 25 && v.rowSrc.age <= 35) {
+                return 'blue'
+              } else {
+                return 'orange';
+              }
+            },
+          },
+          text: {
+            tooltip: () => "подсказка для текста",
+            color: (v) => {
+              if (v.rowSrc.age <= 25) {
+                return "orange"
+              } else if (v.rowSrc.age > 25 && v.rowSrc.age <= 35) {
+                return 'green'
+              } else {
+                return 'blue';
+              }
             }
           }
         }
-      }
-    },
-    {
-      name: 'иконка',
-      key: 'ext',
-      valueConverter: v => '',
-      headerColumn: {
-        icon: {
-          name: 'fiber_manual_record',
-          color: 'gray',
-        },
-        text: {
-          show: false,
-        }
       },
-      valueColumn: {
-        icon: {
-          name: () => 'fiber_manual_record',
-          color: () => this.randomColor(),
+      {
+        name: 'иконка',
+        key: 'ext',
+        valueConverter: v => '',
+        headerColumn: {
+          icon: {
+            name: 'fiber_manual_record',
+            color: 'gray',
+          },
+          text: {
+            show: false,
+          }
         },
-        text: {
-          show: false
+        valueColumn: {
+          icon: {
+            name: () => 'fiber_manual_record',
+            color: () => this.randomColor(),
+          },
+          text: {
+            show: false
+          }
         }
       }
-    }
-  ];
+    ]
+  }
 
   tableData = CustomerGenerator.generate(10);
 

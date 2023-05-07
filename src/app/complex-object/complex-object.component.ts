@@ -10,23 +10,26 @@ import {Book} from "../shared/model/book";
 })
 export class ComplexObjectComponent {
 
-  tableConfig: TableConfig<Book>[] = [
-    {
-      name: 'book id',
-      key: 'id',
-      valueConverter: v => v.id
-    },
-    {
-      name: 'book name',
-      key: 'name',
-      valueConverter: v => v.name
-    },
-    {
-      name: 'book Author',
-      key: 'author',
-      valueConverter: v => v.author.name
-    }
-  ];
+  tableConfig: TableConfig<Book> = {
+    columnsCfg: [
+      {
+        name: 'book id',
+        key: 'id',
+        valueConverter: v => v.id
+      },
+      {
+        name: 'book name',
+        key: 'name',
+        valueConverter: v => v.name
+      },
+      {
+        name: 'book Author',
+        key: 'author',
+        valueConverter: v => v.author.name
+      }
+    ],
+    filterCfg: {enable: true}
+  };
 
   tableData = BooksGenerator.generate(10);
 
