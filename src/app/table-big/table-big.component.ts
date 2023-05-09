@@ -102,6 +102,14 @@ export class TableBigComponent {
     actionCfg: {
       actions: [
         {
+          action: 'history',
+          icon: {
+            name: 'history',
+            color: 'blue',
+            tooltip: 'История посещений'
+          }
+        },
+        {
           action: 'delete',
           icon: {
             name: 'delete',
