@@ -15,7 +15,7 @@ export class TableWithIconsComponent {
         name: 'customers name',
         key: 'name',
         valueConverter: v => v.name,
-        headerColumn: {
+        headerView: {
           icon: {
             name: 'person',
             color: 'salmon'
@@ -26,7 +26,7 @@ export class TableWithIconsComponent {
         name: 'customers age',
         key: 'age',
         valueConverter: v => v.age,
-        valueColumn: {
+        valueView: {
           icon: {
             tooltip: () => 'подсказка для иконки',
             name: (v) => {
@@ -66,7 +66,7 @@ export class TableWithIconsComponent {
         name: 'иконка',
         key: 'ext',
         valueConverter: v => '',
-        headerColumn: {
+        headerView: {
           icon: {
             name: 'fiber_manual_record',
             color: 'gray',
@@ -75,7 +75,7 @@ export class TableWithIconsComponent {
             show: false,
           }
         },
-        valueColumn: {
+        valueView: {
           icon: {
             name: () => 'fiber_manual_record',
             color: () => this.randomColor(),

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {TableConfig, TableRow} from "ngx-aur-mat-table";
+import {TableConfig} from "ngx-aur-mat-table";
 import {Customer} from "../shared/model/customer";
 import {CustomerGenerator} from "../shared/generator/CustomerGenerator";
 import {Sort} from "@angular/material/sort";
