@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonGenerator} from "../shared/generator/PersonGenerator";
-import {TableConfig} from "ngx-aur-mat-table";
+import {ActionEvent, TableConfig} from "ngx-aur-mat-table";
 import {Customer} from "../shared/model/customer";
 import {Person} from "../shared/model/person";
 
@@ -10,7 +10,7 @@ import {Person} from "../shared/model/person";
   styleUrls: ['./table-big.component.scss']
 })
 export class TableBigComponent {
-  tableData = PersonGenerator.generate(10);
+  tableData = PersonGenerator.generate(20);
 
   tableConfig: TableConfig<Person> = {
     columnsCfg: [
@@ -85,6 +85,9 @@ export class TableBigComponent {
         }
       }
     ],
+    stickyCfg: {
+      header: true
+    },
     pointerCfg: {
       enable: true
     },
@@ -119,5 +122,13 @@ export class TableBigComponent {
         }
       ]
     }
+  }
+
+  onClick($event: Person) {
+    alert("clicked on row: " + JSON.stringify($event));
+  }
+
+  onAction($event: ActionEvent<Person>) {
+    alert("clicked on action: " + JSON.stringify($event));
   }
 }

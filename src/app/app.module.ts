@@ -14,6 +14,8 @@ import { TableWithSelectionComponent } from './table-with-selection/table-with-s
 import { TableWithSortComponent } from './table-with-sort/table-with-sort.component';
 import { TableWithIndexComponent } from './table-with-index/table-with-index.component';
 import { TableBigComponent } from './table-big/table-big.component';
+import { TableEmptyComponent } from './table-empty/table-empty.component';
+import { TableWithStickyHeaderComponent } from './table-with-sticky-header/table-with-sticky-header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TableBigComponent } from './table-big/table-big.component';
     TableWithSelectionComponent,
     TableWithSortComponent,
     TableWithIndexComponent,
-    TableBigComponent
+    TableBigComponent,
+    TableEmptyComponent,
+    TableWithStickyHeaderComponent
   ],
   imports: [
     BrowserModule,
