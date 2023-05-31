@@ -84,6 +84,18 @@ export class TableWithIconsComponent {
             show: false
           }
         }
+      },
+      {
+        name: 'with image',
+        key: 'image',
+        valueConverter: v => v.name,
+        valueView: {
+          image: {
+            src: () => 'https://via.placeholder.com/150',
+            height: '16px',
+            width: '16px'
+          }
+        }
       }
     ]
   }

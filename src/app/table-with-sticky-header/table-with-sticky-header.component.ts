@@ -22,7 +22,14 @@ export class TableWithStickyHeaderComponent {
         key: 'age',
         valueConverter: v => v.age
       }
-    ]
+    ],
+    stickyCfg: {
+      header: true
+    },
+    tableView: {
+      height: 'calc(100px + 100px + 200px)',
+    }
+
   }
   tableData: Customer[] = CustomerGenerator.generate(20);
 
