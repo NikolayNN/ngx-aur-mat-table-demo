@@ -25,6 +25,19 @@ export class TableWithSortComponent {
         name: 'customers age',
         key: 'age',
         valueConverter: v => v.age,
+        valueView: {
+          icon: {
+            name: v => {
+              if (v.rowSrc.age < 30) {
+                return 'local_florist'
+              }
+              if (v.rowSrc.age >= 30 && v.rowSrc.age < 40) {
+                return 'favorite'
+              }
+              return 'local_shipping'
+            }
+          }
+        },
         sort: {
           enable: true
         }

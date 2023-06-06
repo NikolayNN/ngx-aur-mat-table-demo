@@ -16,6 +16,7 @@ import { TableWithIndexComponent } from './table-with-index/table-with-index.com
 import { TableBigComponent } from './table-big/table-big.component';
 import { TableEmptyComponent } from './table-empty/table-empty.component';
 import { TableWithStickyHeaderComponent } from './table-with-sticky-header/table-with-sticky-header.component';
+import { TableEditableComponent } from './table-editable/table-editable.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TableWithStickyHeaderComponent } from './table-with-sticky-header/table
     TableWithIndexComponent,
     TableBigComponent,
     TableEmptyComponent,
-    TableWithStickyHeaderComponent
+    TableWithStickyHeaderComponent,
+    TableEditableComponent
   ],
   imports: [
     BrowserModule,
