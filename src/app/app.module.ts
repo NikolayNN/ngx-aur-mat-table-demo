@@ -17,6 +17,7 @@ import { TableBigComponent } from './table-big/table-big.component';
 import { TableEmptyComponent } from './table-empty/table-empty.component';
 import { TableWithStickyHeaderComponent } from './table-with-sticky-header/table-with-sticky-header.component';
 import { TableEditableComponent } from './table-editable/table-editable.component';
+import { TableHighlightClickedRowComponent } from './table-highlight-clicked-row/table-highlight-clicked-row.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TableEditableComponent } from './table-editable/table-editable.componen
     TableBigComponent,
     TableEmptyComponent,
     TableWithStickyHeaderComponent,
-    TableEditableComponent
+    TableEditableComponent,
+    TableHighlightClickedRowComponent
   ],
   imports: [
     BrowserModule,

@@ -88,8 +88,8 @@ export class TableBigComponent {
     stickyCfg: {
       header: true
     },
-    pointerCfg: {
-      enable: true
+    clickCfg: {
+      pointer: true
     },
     filterCfg: {
       enable: true
