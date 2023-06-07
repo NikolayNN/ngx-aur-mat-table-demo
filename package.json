@@ -39,6 +39,6 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": ">=4.2.3 <4.4.0",
 
-    "ngx-aur-mat-table": "0.1.49"
+    "ngx-aur-mat-table": "0.1.53"
   }
 }

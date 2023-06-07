@@ -18,6 +18,7 @@ import { TableEmptyComponent } from './table-empty/table-empty.component';
 import { TableWithStickyHeaderComponent } from './table-with-sticky-header/table-with-sticky-header.component';
 import { TableEditableComponent } from './table-editable/table-editable.component';
 import { TableHighlightClickedRowComponent } from './table-highlight-clicked-row/table-highlight-clicked-row.component';
+import { TableWithWrappedIconComponent } from './table-with-wrapped-icon/table-with-wrapped-icon.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TableHighlightClickedRowComponent } from './table-highlight-clicked-row
     TableEmptyComponent,
     TableWithStickyHeaderComponent,
     TableEditableComponent,
-    TableHighlightClickedRowComponent
+    TableHighlightClickedRowComponent,
+    TableWithWrappedIconComponent
   ],
   imports: [
     BrowserModule,
