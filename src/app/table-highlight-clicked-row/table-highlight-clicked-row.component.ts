@@ -27,6 +27,8 @@ export class TableHighlightClickedRowComponent {
       pointer: true,
       highlightClicked: {
         background: 'blue',
+        color: 'red',
+        border: '2px solid green'
       },
       cancelable: true
     }
