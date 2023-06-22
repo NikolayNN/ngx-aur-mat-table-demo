@@ -25,11 +25,7 @@ export class TableWithStickyHeaderComponent {
     ],
     stickyCfg: {
       header: true
-    },
-    tableView: {
-      height: 'calc(100px + 100px + 200px)',
     }
-
   }
   tableData: Customer[] = CustomerGenerator.generate(20);
 
